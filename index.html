@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Blackjack</title>
+  <meta name="theme-color" content="#080B0A">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="brand">
+        <h1 class="title">BLACKJACK</h1>
+        <p class="tagline">Beat the dealer. Get as close to 21 as possible.</p>
+      </div>
+      <dl class="stats" aria-label="Statistics">
+        <div class="stat stat--win"><dt>Wins</dt><dd id="stat-wins">0</dd></div>
+        <div class="stat stat--loss"><dt>Losses</dt><dd id="stat-losses">0</dd></div>
+        <div class="stat"><dt>Draws</dt><dd id="stat-draws">0</dd></div>
+        <div class="stat stat--muted"><dt>Played</dt><dd id="stat-played">0</dd></div>
+      </dl>
+    </header>
+
+    <main class="table" id="table">
+      <div class="shoe" id="shoe" aria-hidden="true"></div>
+
+      <section class="seat seat--dealer" aria-label="Dealer">
+        <div class="seat-label">
+          <svg class="seat-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="12" cy="12" r="6" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="2.2 2.2"/>
+            <circle cx="12" cy="12" r="2.2" fill="currentColor"/>
+          </svg>
+          Dealer
+        </div>
+        <div class="hand" id="dealer-hand"></div>
+        <div class="score" id="dealer-score"></div>
+      </section>
+
+      <div class="result" id="result" aria-live="polite">
+        <div class="result-title" id="result-title"></div>
+        <div class="result-detail" id="result-detail"></div>
+      </div>
+
+      <section class="seat seat--player" aria-label="Player">
+        <div class="seat-label">You</div>
+        <div class="hand" id="player-hand"></div>
+        <div class="score" id="player-score"></div>
+      </section>
+    </main>
+
+    <footer class="controls">
+      <button class="btn btn--gold" id="btn-hit" type="button" disabled>Hit</button>
+      <button class="btn" id="btn-stand" type="button" disabled>Stand</button>
+      <button class="btn btn--gold btn--wide" id="btn-new" type="button" hidden>New Game</button>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
